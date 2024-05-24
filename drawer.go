@@ -195,7 +195,6 @@ func (d *drawer) SetSize(width, height int) {
 }
 
 func (d *drawer) calcFontSize(text string) (fontSize float64) {
-	const padding = 4
 	fontSizes := []float64{128, 64, 48, 32, 24, 18, 16, 14, 12}
 	for _, fontSize = range fontSizes {
 		textWidth := d.calcTextWidth(fontSize, text)
@@ -217,7 +216,7 @@ func (d *drawer) calcTextWidth(fontSize float64, text string) (textWidth int) {
 	}
 	for _, x := range text {
 		awidth, ok := face.GlyphAdvance(rune(x))
-		if ok != true {
+		if !ok {
 			return
 		}
 		textWidth += int(float64(awidth) / 64)

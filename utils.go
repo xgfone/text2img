@@ -24,6 +24,6 @@ func Hex(scol string) (color.RGBA, error) {
 	return color.RGBA{r * factor, g * factor, b * factor, 255}, nil
 }
 
-func must(c color.RGBA, e error) color.RGBA {
+func must(c color.RGBA, _ error) color.RGBA {
 	return c
 }
